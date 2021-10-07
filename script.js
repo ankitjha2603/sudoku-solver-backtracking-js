@@ -123,7 +123,6 @@ document.getElementById("visualize").addEventListener("click",function(){
     }
 })
 document.getElementById("solve").addEventListener("click",function(){
-    alert("Wait 3 sec ");
     let sample = takeData();
     if(validation(sample)){
         let repl = timeDiff([[...sample],0],sudokuSolver);
