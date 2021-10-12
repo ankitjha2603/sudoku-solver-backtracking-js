@@ -56,28 +56,31 @@ function sudokuCheck(board, r, c, n) {
     for (let R = 0; R < 3; R++) {
         for (let C = 0; C < 3; C++) {
             if (n == board[R + 3 * bR][C + 3 * bC]) {
-                return false
+                return false;
             }
         }
     }
-    return true
+    return true;
 }
 // this function check whether given sudoku is valid or invalid
 function validation(board, r = 0, c = 0) {
     if (r === 9) {
-        return true
+        return true;
     }
-    let n = board[r][c]
+    let n = board[r][c];
+    if([1,2,3,4,5,6,7,8,9].includes(n)==false){
+        return false;
+    }
     if (n === 0) {
-        return validation(board, r + (c == 8), (c + 1) % 9)
+        return validation(board, r + (c == 8), (c + 1) % 9);
     }
     board[r][c] = 0;
     if (sudokuCheck(board, r, c, n)) {
-        board[r][c] = n
-        return validation(board, r + (c == 8), (c + 1) % 9)
+        board[r][c] = n;
+        return validation(board, r + (c == 8), (c + 1) % 9);
     }
-    board[r][c] = n
-    return false
+    board[r][c] = n;
+    return false;
 }
 // sudoku solver main function
 function sudokuSolver(board,delay, r = 0, c = 0) {
@@ -86,7 +89,7 @@ function sudokuSolver(board,delay, r = 0, c = 0) {
     }
     for (let n = 1; n <= 9; n++) {
         if (board[r][c]) {
-            return sudokuSolver(board, delay, r + (c == 8), (c + 1) % 9)
+            return sudokuSolver(board, delay, r + (c == 8), (c + 1) % 9);
         }
         if (sudokuCheck(board, r, c, n)) {
             board[r][c] = n;
