@@ -68,7 +68,7 @@ function validation(board, r = 0, c = 0) {
         return true;
     }
     let n = board[r][c];
-    if([1,2,3,4,5,6,7,8,9].includes(n)==false){
+    if([0,1,2,3,4,5,6,7,8,9].includes(n)===false){
         return false;
     }
     if (n === 0) {
