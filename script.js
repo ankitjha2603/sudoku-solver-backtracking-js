@@ -110,9 +110,9 @@ function sudokuSolver(board,delay, r = 0, c = 0) {
 }
 // Add event listener on button
 document.getElementById("visualize").addEventListener("click",function(){
-    alert("Wait 3 sec ");
     let sample = takeData();
     if(validation(sample)){
+        alert("Wait 3 sec ");
         let repl = sudokuSolver([...sample],3000)
         if(repl){
             console.log("Done");
